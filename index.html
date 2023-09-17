@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive and Beautiful Background</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Your+Custom+Font&display=swap">
+    <title>Media Pembelajaran Interaktif - PembaTIK 2023</title>
     <style>
         /* Define styles for the background */
         body {
             margin: 0;
             padding: 0;
             overflow: hidden;
-            background: #63c7d0; /* Initial background color */
+            background: #c7dde0; /* Initial background color */
             transition: background-color 2s ease; /* Transition effect for color change */
         }
 
@@ -60,7 +61,7 @@
             border-radius: 5px;
         }
 
-        /* Style the header with logo and author information */
+        /* Style the header with logos and author information */
         #header {
             position: absolute;
             top: 10px;
@@ -70,12 +71,27 @@
         }
 
         #header img {
-            width: 40px; /* Adjust the width of the logo as needed */
+            width: 40px; /* Adjust the width of the logos as needed */
             margin-right: 10px;
         }
 
         #header p {
             margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Apply the custom font */
+            font-size: 18px; /* Adjust the font size as needed */
+        }
+
+        /* Position the additional logos in the top right corner */
+        #additional-logos {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+        }
+
+        #additional-logos img {
+            width: 100px; /* Adjust the width of the additional logos as needed */
+            margin-left: 10px;
         }
 
         /* Particle background container */
@@ -97,9 +113,14 @@
     <p>Miftah Rahmalia Ariyati, S.Pd., M.T</p>
 </div>
 
+<!-- Additional logos in the top right corner -->
+<div id="additional-logos">
+    <img src="https://merdekabelajar.dairikab.go.id/wp-content/uploads/2022/11/pmm-removebg-preview.png">
+</div>
+
 <!-- Embed a YouTube video with autoplay and sound -->
 <div class="video-container" id="video-container">
-    <iframe id="youtube-video" width="560" height="315" src="https://www.youtube.com/embed/77ttIlGLUUE?autoplay=1" frameborder="0" allowfullscreen></iframe>
+    <iframe id="youtube-video" width="1024" height="768" src="https://www.youtube.com/embed/77ttIlGLUUE?autoplay=1" frameborder="0" allowfullscreen></iframe>
 </div>
 
 <!-- Embed the iframe (replace src with the desired URL) -->
