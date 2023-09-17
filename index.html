@@ -120,7 +120,7 @@
 
 <!-- Embed a YouTube video with autoplay and sound -->
 <div class="video-container" id="video-container">
-    <iframe id="youtube-video" width="1024" height="768" src="https://www.youtube.com/embed/77ttIlGLUUE?autoplay=1" frameborder="0" allowfullscreen></iframe>
+    <iframe id="youtube-video"></iframe>
 </div>
 
 <!-- Embed the iframe (replace src with the desired URL) -->
@@ -135,11 +135,23 @@
 
 <script type="text/javascript">
     var player;
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
     // Function to initialize the YouTube player
     function onYouTubeIframeAPIReady() {
-        player = new YT.Player('youtube-video', {
+        player = new YT.Player('video-container', {
+            height: '768',
+            width: '1024',
+            videoId: '77ttIlGLUUE',
+            playerVars: {
+                'playsinline': 1
+            },
             events: {
+                'onReady': onPlayerReady,
                 'onStateChange': onPlayerStateChange
             }
         });
@@ -148,8 +160,14 @@
     // Function to detect when the YouTube video has finished playing
     function onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.ENDED) {
-            document.getElementById('hide-button-container').style.display = 'block';
+            document.getElementById('video-container').style.display = 'none';
+            document.getElementById('iframe-container').style.display = 'block';
+            document.getElementById('hide-button-container').style.display = 'none'; // Hide the button container
         }
+    }
+
+    function onPlayerReady(event) {
+        event.target.playVideo();
     }
 
     // Function to hide the video manually when the button is clicked
@@ -160,8 +178,8 @@
     });
 </script>
 
-<!-- Include the YouTube IFrame API script -->
-<script src="https://www.youtube.com/iframe_api"></script>
+<!--&lt;!&ndash; Include the YouTube IFrame API script &ndash;&gt;-->
+<!--<script src="https://www.youtube.com/iframe_api"></script>-->
 
 <!-- Include particles.js -->
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
