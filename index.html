@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive and Beautiful Background</title>
+    <style>
+        /* Define styles for the background */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: linear-gradient(90deg, #ff6f61, #ff877d, #ffb8a0, #ffd9c3, #fff6f5);
+            background-size: 400% 400%;
+            animation: gradientBG 15s linear infinite;
+        }
+
+        /* Add animation for the background */
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Style the video container */
+        .video-container {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+        }
+
+        /* Style the iframe container */
+        .iframe-container {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            display: none; /* Hide the iframe initially */
+        }
+
+        /* Style the iframe itself */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        /* Style the hide button container */
+        #hide-button-container {
+            position: absolute;
+            bottom: 20px;
+            left: 10px;
+        }
+
+        /* Style the hide button */
+        #hide-button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<!-- Embed a YouTube video with autoplay -->
+<div class="video-container" id="video-container">
+    <iframe id="youtube-video" width="560" height="315" src="https://www.youtube.com/embed/77ttIlGLUUE?autoplay=1" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<!-- Embed the iframe (replace src with the desired URL) -->
+<div class="iframe-container" id="iframe-container">
+    <iframe src="https://app.Lumi.education/api/v1/run/tokU9C/embed" width="768" height="720" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+</div>
+
+<!-- Button container -->
+<div id="hide-button-container">
+    <button id="hide-button">Hide Video</button>
+</div>
+
+<script type="text/javascript">
+    var player;
+
+    // Function to initialize the YouTube player
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('youtube-video', {
+            events: {
+                'onStateChange': onPlayerStateChange
+            }
+        });
+    }
+
+    // Function to detect when the YouTube video has finished playing
+    function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.ENDED) {
+            document.getElementById('hide-button-container').style.display = 'block';
+        }
+    }
+
+    // Function to hide the video manually when the button is clicked
+    document.getElementById('hide-button').addEventListener('click', function() {
+        document.getElementById('video-container').style.display = 'none';
+        document.getElementById('iframe-container').style.display = 'block';
+        document.getElementById('hide-button-container').style.display = 'none'; // Hide the button container
+    });
+</script>
+
+<!-- Include the YouTube IFrame API script -->
+<script src="https://www.youtube.com/iframe_api"></script>
+</body>
+</html>
