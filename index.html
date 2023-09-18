@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Your+Custom+Font&display=swap">
     <title>Media Pembelajaran Interaktif - PembaTIK 2023</title>
     <style>
         /* Define styles for the background */
@@ -51,7 +50,7 @@
             right: 20px; /* Adjust this value for the desired right margin */
         }
 
-        /* Style the hide button */
+        /* Style the hide button with animation */
         #hide-button {
             background-color: #333;
             color: white;
@@ -59,6 +58,17 @@
             padding: 10px 20px;
             cursor: pointer;
             border-radius: 5px;
+            animation: zoomInOut 2s ease infinite; /* Zoom-in and zoom-out animation */
+        }
+
+        /* Keyframes for the zoom-in and zoom-out animation */
+        @keyframes zoomInOut {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
         }
 
         /* Style the header with logos and author information */
@@ -131,14 +141,13 @@
 
 <!-- Embed the iframe (replace src with the desired URL) -->
 <div class="iframe-container" id="iframe-container">
-    <iframe src="https://app.Lumi.education/api/v1/run/tokU9C/embed" width="768" height="720" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+    <iframe src="https://app.Lumi.education/api/v1/run/I19uen/embed" width="1088" height="720" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
 </div>
 
 <!-- Button container -->
 <div id="hide-button-container">
     <button id="hide-button">Lanjutkan</button>
 </div>
-
 <script type="text/javascript">
     var player;
     var tag = document.createElement('script');
@@ -183,9 +192,6 @@
         document.getElementById('hide-button-container').style.display = 'none'; // Hide the button container
     });
 </script>
-
-<!--&lt;!&ndash; Include the YouTube IFrame API script &ndash;&gt;-->
-<!--<script src="https://www.youtube.com/iframe_api"></script>-->
 
 <!-- Include particles.js -->
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>

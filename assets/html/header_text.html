@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .header {
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+            border-radius: 200px;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            overflow: hidden;
+            position: absolute;
+            top: 50%; /* Position the header at the vertical center */
+            left: 50%; /* Position the header at the horizontal center */
+            transform: translate(-50%, -50%); /* Center horizontally and vertically */
+            animation: changeBackgroundColor 10s linear infinite, zoomInOut 10s alternate infinite;
+        }
+
+        .header h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 1.2rem;
+        }
+
+        .header p {
+            margin: 0;
+            padding: 0;
+            font-size: 1rem;
+        }
+
+        @keyframes changeBackgroundColor {
+            0% {
+                background-color: #3498db;
+            }
+            25% {
+                background-color: #e74c3c;
+            }
+            50% {
+                background-color: #f1c40f;
+            }
+            75% {
+                background-color: #2ecc71;
+            }
+            100% {
+                background-color: #3498db;
+            }
+        }
+
+        @keyframes zoomInOut {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+    </style>
+
+
+</head>
+<body>
+<div class="header">
+    <div id="particles-js"></div>
+    <h1 id="headerText">Welcome to My Playful Website</h1>
+</div>
+</body>
+
+<script  type="text/javascript">
+    // Function to extract query parameters from the URL
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    // Get the "text" parameter from the URL and update the header text
+    const textParam = getQueryParam("text");
+    console.log(textParam);
+    if (textParam) {
+        const headerTextElement = document.getElementById("headerText");
+        console.log(headerTextElement);
+        if (headerTextElement) {
+            headerTextElement.textContent = textParam;
+        }
+    }
+</script>
+
+</html>
