@@ -12,6 +12,25 @@
             overflow: hidden;
             background: #c7dde0; /* Initial background color */
             transition: background-color 2s ease; /* Transition effect for color change */
+            animation: changeBackgroundColor 10s linear infinite;
+        }
+
+        @keyframes changeBackgroundColor {
+            0% {
+                background-color: #3498db;
+            }
+            25% {
+                background-color: #e74c3c;
+            }
+            50% {
+                background-color: #f1c40f;
+            }
+            75% {
+                background-color: #2ecc71;
+            }
+            100% {
+                background-color: #3498db;
+            }
         }
 
         /* Style the video container */
