@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<audio id="correct-audio" preload="auto">
+    <source src="correct.mp3" type="audio/mpeg">
+</audio>
+<audio id="wrong-audio" preload="auto">
+    <source src="wrong.mp3" type="audio/mpeg">
+</audio>
+<div class="start-screen">
+    <button id="start-button">Mulai Latihan</button>
+</div>
+<div id="display-container">
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p>Ayo dijawab dulu ya</p>
+            <button id="modal-close">OK</button>
+        </div>
+    </div>
+
+    <div class="header">
+        <div class="number-of-count">
+            <span class="number-of-question">1 dari 3 pertanyaan</span>
+        </div>
+        <div class="timer-div">
+            <img src="https://uxwing.com/wp-content/themes/uxwing/download/time-and-date/stopwatch-icon.png"
+                 width="20px"/>
+            <span class="time-left">60s</span>
+        </div>
+    </div>
+    <div class="question-card">
+        <div class="image-container">
+            <img src="" alt="Question Image"/>
+            <div class="balloon-tooltip"></div>
+        </div>
+        <div id="container">
+            <!-- questions and options will be displayed here -->
+        </div>
+    </div>
+    <button id="next-button">Selanjutnya</button>
+</div>
+
+<div class="score-container hide">
+    <div id="user-score">Skor</div>
+    <button id="restart">Ulangi</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+
+</html>

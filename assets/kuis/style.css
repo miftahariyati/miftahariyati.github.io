@@ -1,0 +1,258 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body {
+    height: 100vh;
+    background: linear-gradient(184deg,#8754ff,#8E2DE2);
+}
+.start-screen,
+.score-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+button {
+    padding: 0.7em 1.8em;
+    border-radius: 0.3em;
+    float: right;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+button:hover {
+    animation: buttonZoom 0.3s alternate infinite;
+}
+#start-button,
+#restart {
+    font-size: 2em;
+    padding: 0.5em 1.8em;
+    border-radius: 0.2em;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
+}
+#restart {
+    margin-top: 0.9em;
+}
+#display-container {
+    background-color: #ffffff;
+    padding: 3.1em 1.8em;
+    width: 80%;
+    max-width: 37.5em;
+    margin: 0 auto;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 0.6em;
+}
+.header {
+    margin-bottom: 1.8em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.6em;
+    border-bottom: 0.1em solid #c0bfd2;
+}
+.timer-div {
+    background-color: #e1f5fe;
+    width: 7.5em;
+    border-radius: 1.8em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7em 1.8em;
+}
+.question {
+    margin-bottom: 1.25em;
+    font-weight: 600;
+}
+.option-div {
+    font-size: 1em;
+    width: 100%;
+    padding: 1em;
+    margin: 0.3em 0;
+    text-align: left;
+    outline: none;
+    border: 1px solid #c0bfd2;
+    border-radius: 0.3em;
+}
+.option-div:disabled {
+    color: #000000;
+    cursor: not-allowed;
+}
+#next-button {
+    font-size: 1.2em;
+    margin-top: 1.5em;
+    background-color: #8754ff;
+    color: #ffffff;
+    padding: 0.7em 1.8em;
+    border-radius: 0.3em;
+    float: right;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.3);
+    animation-name: zoomIn; /* Apply the zoomIn animation */
+    animation-duration: 0.5s; /* Animation duration */
+    animation-timing-function: ease-in-out; /* Animation timing function */
+}
+#next-button:hover {
+    animation-name: zoomOut;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+}
+.hide {
+    display: none;
+}
+.incorrect {
+    background-color: #ffdde0;
+    color: #d32f2f;
+    border-color: #d32f2f;
+}
+.correct {
+    background-color: #e7f6d5;
+    color: #689f38;
+    border-color: #689f38;
+}
+#user-score {
+    font-size: 1.5em;
+    color: #ffffff;
+}
+
+.image-container {
+    text-align: center;
+    animation: zoomInOut 3s alternate infinite; /* Adjust the duration and other animation properties as needed */
+}
+.image-container img {
+    max-width: 100%;
+    max-height: 300px; /* Adjust the maximum height as needed */
+    margin: 40px;
+}
+.balloon-tooltip {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: block; /* Initially hide the tooltip */
+    z-index: 1; /* Ensure it's above the image */
+    right: 0;
+    top: 20%;
+    transform: translateY(-50%);
+    animation: moveBalloon 1s linear infinite alternate, diagonalBalloon 2s linear infinite alternate;
+}
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Modal Close Button */
+#modal-close {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+@keyframes firework {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes moveBalloon {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(20px);
+    }
+}
+@keyframes diagonalBalloon {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    100% {
+        transform: translateY(-20px) translateX(20px);
+    }
+}
+@keyframes buttonZoom {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+@keyframes zoomInOut {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+@keyframes zoomIn {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes zoomOut {
+    0% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(10px);
+    }
+}
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
