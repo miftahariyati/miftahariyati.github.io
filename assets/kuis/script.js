@@ -207,7 +207,7 @@ function quizCreator() {
         let div = document.createElement("div");
         div.classList.add("container-mid", "hide");
         //question number
-        countOfQuestion.innerHTML = 1 + " of " + quizArray.length + " Question";
+        countOfQuestion.innerHTML = 1 + " dari " + quizArray.length + " Pertanyaan";
         //question
         let question_DIV = document.createElement("p");
         question_DIV.classList.add("question");
